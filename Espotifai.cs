@@ -42,6 +42,15 @@ namespace Laboratorio2_MatiasLeguer
             
         }
 
+        public void VerCanciones()
+        {
+            for (int i = 0; i < music.Count(); i++)
+            {
+                Console.WriteLine(music[i].Informacion());
+                Console.WriteLine("----------------------------------------------");
+            }
+        }
+
         
 
 
