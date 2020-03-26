@@ -3,7 +3,7 @@
 
 namespace Laboratorio2_MatiasLeguer
 {
-    class Cancion
+    public class Cancion
     {
         private string nombre;
         private string album;
@@ -20,8 +20,28 @@ namespace Laboratorio2_MatiasLeguer
 
         public string Informacion()
         {
-            public string info = "hola";
+            string info = "Nombre: " + nombre + ", Album: " + album + ", Artista: " + artista + ", Genero: " + genero;
+            return info;
         }
+
+        public string GetName()
+        {
+            return nombre;
+        }
+
+        public string GetAlbum()
+        {
+            return album;
+        }
+
+        public string GetArtist()
+        {
+            return artista;
+        }
+
+
+
+
 
 
     }
