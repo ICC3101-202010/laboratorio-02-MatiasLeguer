@@ -10,7 +10,7 @@ namespace Laboratorio2_MatiasLeguer
         private string artista;
         private string genero;
 
-        public Cancion(string nombre, string album, string artista, string genero)
+        public Cancion(string nombre, string album, string artista, string genero)  // Constructor que recibe los nuevos nombres del objeto
         {
             this.nombre = nombre;
             this.album = album;
@@ -18,7 +18,7 @@ namespace Laboratorio2_MatiasLeguer
             this.genero = genero;
         }
 
-        public string Informacion()
+        public string Informacion() //Método que te entrega la información de la canción.
         {
             string info = "Nombre: " + nombre + ", Album: " + album + ", Artista: " + artista + ", Genero: " + genero;
             return info;
@@ -37,6 +37,10 @@ namespace Laboratorio2_MatiasLeguer
         public string GetArtist()
         {
             return artista;
+        }
+        public string GetGenre()
+        {
+            return genero;
         }
 
 
