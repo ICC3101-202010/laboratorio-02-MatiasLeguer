@@ -76,6 +76,9 @@ namespace Laboratorio2_MatiasLeguer
                         }
                         break;
 
+                    
+
+
 
                     case "close":                // Caso para poder cerrar el loop infinito.
                         afirmacion = false;

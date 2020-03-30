@@ -17,15 +17,17 @@ namespace Laboratorio2_MatiasLeguer
             this.listPlay = listPlay;
         }
 
-        public void InformacionPlaylist()
+        public string InformacionPlaylist()
         {
-            Console.WriteLine("INFORMACION DE LA PLAYLIST");
-            Console.WriteLine("");
+            string info;
+            info = nombreP + "\n-----------------------------------------\n";
+            
             for (int i = 0; i< listPlay.Count; i++)
             {
-                Console.WriteLine(listPlay[i].Informacion());
-                Console.WriteLine("-------------------------------------------");
+                info += listPlay[i].Informacion() + "\n---------------------------------------------------------------------------\n";
             }
+
+            return info;
 
         }
 

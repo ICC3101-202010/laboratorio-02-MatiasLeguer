@@ -12,7 +12,7 @@ namespace Laboratorio2_MatiasLeguer
         private List<Cancion> music = new List<Cancion>(3);
         private Cancion malCriterio = new Cancion("m", "", "", "");
         private Cancion noHay = new Cancion("n", "", "", "");
-        private Playlist playlist;
+        private List<Playlist> playlist = new List<Playlist>(0);
 
         public Espotifai()
         {
@@ -138,8 +138,8 @@ namespace Laboratorio2_MatiasLeguer
 
             if (nombres.Count == 0)
             {
-                Playlist playlist = new Playlist(nombrePlaylist, listaPlaylist);
-                this.playlist = playlist;
+                Playlist play = new Playlist(nombrePlaylist, listaPlaylist);
+                playlist.Add(play);
             }
             else
             {
@@ -157,7 +157,19 @@ namespace Laboratorio2_MatiasLeguer
 
         public string VerMisPlaylists()
         {
+            List<string> infoP = new List<string>(0);
+            string infoPlaylist = "INFORMACION PLAYLISTS\n";
 
+            for (int i = 0; i < playlist.Count; i++)
+            {
+                infoP.Add(playlist[i].InformacionPlaylist());
+            }
+
+            for (int i = 0; i < infoP.Count; i++)
+            {
+                infoPlaylist += infoP[i];
+            }
+            return infoPlaylist;
         }
 
 
