@@ -24,21 +24,21 @@ namespace Laboratorio2_MatiasLeguer
             return info;
         }
 
-        public string GetName()
+        public string GetName()     //método que consigue el nombre de la canción
         {
             return nombre;
         }
 
-        public string GetAlbum()
+        public string GetAlbum()    //método que consigue el album
         {
             return album;
         }
 
-        public string GetArtist()
+        public string GetArtist()   //método que consigue el artista
         {
             return artista;
         }
-        public string GetGenre()
+        public string GetGenre()    //método que consigue el genero
         {
             return genero;
         }
