@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Cancion.cs" />
     <Compile Include="Espotifai.cs" />
+    <Compile Include="Playlist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

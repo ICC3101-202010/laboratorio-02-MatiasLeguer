@@ -10,6 +10,30 @@ namespace Laboratorio2_MatiasLeguer
     {
         static void Main(string[] args)
         {
+            List<Cancion> musicaMashu = new List<Cancion>(60);
+            Cancion cancion1 = new Cancion("wanted dead or alive", "slippery when wet", "bon jovi", " rock");
+            Cancion cancion2 = new Cancion("live wire", "too fast for love", "motley crue", "rock");
+            Cancion cancion3 = new Cancion("love of my life", "a night in the opera", "queen", "rock");
+            Cancion cancion4 = new Cancion("home sweet home", "too fast for love", "motley crue", "rock");
+            Cancion cancion5 = new Cancion("Kiwi", "harry styles", "harry styles", "rock");
+            musicaMashu.Add(cancion1);
+            musicaMashu.Add(cancion2);
+            musicaMashu.Add(cancion3);
+            musicaMashu.Add(cancion4);
+            musicaMashu.Add(cancion5);
+
+            Playlist playlist = new Playlist("rock", musicaMashu);
+            playlist.InformacionPlaylist();
+
+
+
+
+
+
+
+
+
+
             Espotifai spotify = new Espotifai();  //Se crea la instancia spotify
             bool afirmacion = true;               //Se crea una variable true para tener un loop infinito hasta que el usuario quiera cerrar el programa.
             while (afirmacion)                    //Loop infinito
@@ -21,10 +45,11 @@ namespace Laboratorio2_MatiasLeguer
                 {
                     case "agregar":                     //Caso utilizado para agregar una cancion a la lista.
 
-                        string name = Console.ReadLine("Coloque el nombre de la cancion: ");              //Se agrega el nombre,
-                        string album = Console.ReadLine("Coloque el album: ");             //el album,
-                        string artist = Console.ReadLine("Coloque el artista: ");            //el artista
-                        string genre = Console.ReadLine("Coloque el genero: ");             // y el genero.
+                        Console.WriteLine("Porfavor coloque el nombre de la cancion, luego el album, después el artista y finalmente el genero");
+                        string name = Console.ReadLine();              //Se agrega el nombre,
+                        string album = Console.ReadLine();             //el album,
+                        string artist = Console.ReadLine();            //el artista
+                        string genre = Console.ReadLine();             // y el genero.
                        
                         Cancion cancion = new Cancion(name, album, artist, genre);  //Se Crea la instancia
                         bool respuesta = spotify.AgregarCancion(cancion);           //Se checkea si la canción se encuentra en la lista.
