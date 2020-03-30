@@ -10,30 +10,6 @@ namespace Laboratorio2_MatiasLeguer
     {
         static void Main(string[] args)
         {
-            List<Cancion> musicaMashu = new List<Cancion>(60);
-            Cancion cancion1 = new Cancion("wanted dead or alive", "slippery when wet", "bon jovi", " rock");
-            Cancion cancion2 = new Cancion("live wire", "too fast for love", "motley crue", "rock");
-            Cancion cancion3 = new Cancion("love of my life", "a night in the opera", "queen", "rock");
-            Cancion cancion4 = new Cancion("home sweet home", "too fast for love", "motley crue", "rock");
-            Cancion cancion5 = new Cancion("Kiwi", "harry styles", "harry styles", "rock");
-            musicaMashu.Add(cancion1);
-            musicaMashu.Add(cancion2);
-            musicaMashu.Add(cancion3);
-            musicaMashu.Add(cancion4);
-            musicaMashu.Add(cancion5);
-
-            Playlist playlist = new Playlist("rock", musicaMashu);
-            playlist.InformacionPlaylist();
-
-
-
-
-
-
-
-
-
-
             Espotifai spotify = new Espotifai();  //Se crea la instancia spotify
             bool afirmacion = true;               //Se crea una variable true para tener un loop infinito hasta que el usuario quiera cerrar el programa.
             while (afirmacion)                    //Loop infinito
@@ -66,15 +42,31 @@ namespace Laboratorio2_MatiasLeguer
 
 
                     case "criterio":
+                        Cancion mc = new Cancion("m", "", "", "");
+                        Cancion nh = new Cancion("n", "", "", "");
+
                         Console.WriteLine("Porfavor escriba el criterio que quiere utilizar (nombre, album, artista, genero)");
                         string criterio = Console.ReadLine();
+
                         Console.WriteLine("Ahora escriba el valor");
                         string valor = Console.ReadLine();
                         List<Cancion> answer;
+
                         Console.WriteLine(" ");
                         Console.WriteLine("LISTA DE CANCIONES POR CRITERIO");
                         Console.WriteLine(" ");
                         answer = spotify.CancionesPorCriterio(criterio, valor);
+
+                        if(answer[0].Informacion() == mc.Informacion())
+                        {
+                            Console.WriteLine("El criterio no es parte de los cuatro criterios disponibles");
+                            answer.Clear();
+                        }
+                        else if (answer[0].Informacion() == nh.Informacion())
+                        {
+                            Console.WriteLine("No se encontró ninguna canción que cumpla el valor señalado");
+                            answer.Clear();
+                        }
 
                         for (int i = 0; i < answer.Count; i++)
                         {

@@ -9,7 +9,10 @@ namespace Laboratorio2_MatiasLeguer
     public class Espotifai
     {
 
-        public List<Cancion> music = new List<Cancion>(3);
+        private List<Cancion> music = new List<Cancion>(3);
+        private Cancion malCriterio = new Cancion("m", "", "", "");
+        private Cancion noHay = new Cancion("n", "", "", "");
+        private Playlist playlist;
 
         public Espotifai()
         {
@@ -96,7 +99,7 @@ namespace Laboratorio2_MatiasLeguer
             }
             else                                                     //Condición cuando no cumple con ningun criterio.
             {
-                Console.WriteLine("El Criterio no es uno de los cuatro permitidos");
+                answer.Add(malCriterio);
                 return answer;
             }
 
@@ -106,10 +109,54 @@ namespace Laboratorio2_MatiasLeguer
             }
             else
             {
-                Console.WriteLine("No se encontro ninguna Cancion que cumpla con el valor mencionado.");
+                answer.Add(noHay);
                 return answer;                                       //La lista no contiene elementos
             }
 
+
+        }
+
+        public bool GenerarPlaylist(string criterio, string valorCriterio, string nombrePlaylist)
+        {
+            Espotifai spot = new Espotifai();
+            List<Cancion> listaPlaylist;
+            List<string> nombres = new List<string>(0);
+            listaPlaylist = spot.CancionesPorCriterio(criterio, valorCriterio);
+
+            if (listaPlaylist[0].Informacion() == malCriterio.Informacion())
+            {
+                Console.WriteLine("El criterio no es el correcto");
+                listaPlaylist.Clear();
+                return false;
+            }
+            else if (listaPlaylist[0].Informacion() == noHay.Informacion())
+            {
+                Console.WriteLine("No hay canciones solicitadas con su valor para agregar a la playlist");
+                listaPlaylist.Clear();
+                return false;
+            }
+
+            if (nombres.Count == 0)
+            {
+                Playlist playlist = new Playlist(nombrePlaylist, listaPlaylist);
+                this.playlist = playlist;
+            }
+            else
+            {
+                for (int i = 0; i < nombres.Count; i++)
+                {
+                    if (nombres[i] == nombrePlaylist)
+                    {
+                        Console.WriteLine("Este nombre ya existe");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public string VerMisPlaylists()
+        {
 
         }
 

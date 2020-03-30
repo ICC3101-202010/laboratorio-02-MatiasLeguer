@@ -29,6 +29,11 @@ namespace Laboratorio2_MatiasLeguer
 
         }
 
+        public string GetName()
+        {
+            return nombreP;
+        }
+
 
     }
 }

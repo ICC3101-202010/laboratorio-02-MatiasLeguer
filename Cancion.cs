@@ -20,7 +20,7 @@ namespace Laboratorio2_MatiasLeguer
 
         public string Informacion() //Método que te entrega la información de la canción.
         {
-            string info = "Nombre: " + nombre + ", Album: " + album + ", Artista: " + artista + ", Genero: " + genero;
+            string info = "genero: " + genero + ", artista: " + artista + ", album: " + album + ", nombre: " + nombre;
             return info;
         }
 
